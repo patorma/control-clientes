@@ -4,6 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: '/tablero'
+  },
+  {
     path: 'tablero', loadChildren: () =>
     import('./components/tablero/tablero.module').then(m =>  m.TableroModule)
   },
@@ -27,11 +32,7 @@ const routes: Routes = [
     path: '**', loadChildren: () =>
     import('./components/no-encontrado/no-encontrado.module').then(m => m.NoEncontradoModule)
   },
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'tablero'
-  }
+  
 ];
 
 @NgModule({

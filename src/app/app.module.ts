@@ -11,18 +11,33 @@ import { CabeceroComponent } from './components/cabecero/cabecero.component';
 //import { ConfiguracionComponent } from './components/configuracion/configuracion.component';
 // import { NoEncontradoComponent } from './components/no-encontrado/no-encontrado.component';
 import { PiePaginaComponent } from './components/pie-pagina/pie-pagina.component';
+import { environment } from '../environments/environment';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule, SETTINGS} from '@angular/fire/firestore';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     CabeceroComponent,
-    PiePaginaComponent
+    PiePaginaComponent,
+   
+ 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firestore,'control-clientes'),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    FormsModule,
+    FlashMessagesModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
+ 
 })
 export class AppModule { }
